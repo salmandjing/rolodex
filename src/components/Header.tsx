@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import { ArrowLeft, Sun, Moon } from 'lucide-react'
+import { ChevronLeft, Sun, Moon } from 'lucide-react'
 import styles from './Header.module.css'
 import type { Theme } from '../lib/theme'
 
@@ -19,15 +19,16 @@ export function Header({ title, showBack, theme, onToggleTheme, actions }: Heade
       <div className={styles.left}>
         {showBack && (
           <button className={styles.backBtn} onClick={() => navigate(-1)} aria-label="Go back">
-            <ArrowLeft size={20} />
+            <ChevronLeft size={24} />
+            <span className={styles.backLabel}>Back</span>
           </button>
         )}
-        <h1 className={styles.title}>{title}</h1>
       </div>
+      {title && <h1 className={styles.title}>{title}</h1>}
       <div className={styles.actions}>
         {actions}
         <button className={styles.iconBtn} onClick={onToggleTheme} aria-label="Toggle theme">
-          {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+          {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
         </button>
       </div>
     </header>

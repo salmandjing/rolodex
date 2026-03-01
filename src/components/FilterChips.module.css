@@ -2,7 +2,7 @@
   display: flex;
   gap: 8px;
   overflow-x: auto;
-  padding-bottom: 4px;
+  padding: 0 0 4px;
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
@@ -14,21 +14,20 @@
 .chip {
   display: flex;
   align-items: center;
-  gap: 4px;
-  padding: 6px 12px;
-  background: var(--bg-tertiary);
+  gap: 5px;
+  padding: 7px 14px;
+  background: var(--bg-secondary);
   border: 1px solid var(--border);
   border-radius: 20px;
-  font-size: 12px;
+  font-size: 14px;
   color: var(--text-secondary);
   white-space: nowrap;
-  transition: all 150ms ease;
   flex-shrink: 0;
+  transition: all 150ms ease;
 }
 
-.chip:hover {
-  border-color: var(--accent);
-  color: var(--text-primary);
+.chip:active {
+  transform: scale(0.96);
 }
 
 .chipActive {
@@ -38,6 +37,5 @@
 }
 
 .chipIcon {
-  display: flex;
-  align-items: center;
+  flex-shrink: 0;
 }

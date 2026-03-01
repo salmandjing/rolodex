@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { db } from '../lib/db'
 import { searchContacts, filterContacts, sortContacts } from '../lib/search'
-import { Header } from '../components/Header'
 import { SearchBar } from '../components/SearchBar'
 import { FilterChips, type Filters } from '../components/FilterChips'
 import { ContactCard } from '../components/ContactCard'
@@ -19,10 +18,8 @@ interface HomeScreenProps {
 }
 
 const defaultFilters: Filters = {
-  favoritesOnly: false,
-  tag: '',
   company: '',
-  state: '',
+  location: '',
 }
 
 export function HomeScreen({ theme, onToggleTheme }: HomeScreenProps) {
@@ -32,34 +29,27 @@ export function HomeScreen({ theme, onToggleTheme }: HomeScreenProps) {
 
   const allContacts = useLiveQuery(() => db.contacts.toArray(), [])
 
-  const { availableTags, availableCompanies, availableStates } = useMemo(() => {
-    if (!allContacts) return { availableTags: [], availableCompanies: [], availableStates: [] }
+  const { availableCompanies, availableLocations } = useMemo(() => {
+    if (!allContacts) return { availableCompanies: [], availableLocations: [] }
 
-    const tagCounts = new Map<string, number>()
     const companyCounts = new Map<string, number>()
-    const stateCounts = new Map<string, number>()
+    const locationCounts = new Map<string, number>()
 
     for (const c of allContacts) {
-      for (const t of c.tags) {
-        tagCounts.set(t, (tagCounts.get(t) || 0) + 1)
-      }
       if (c.company) {
         companyCounts.set(c.company, (companyCounts.get(c.company) || 0) + 1)
       }
       if (c.state) {
-        stateCounts.set(c.state, (stateCounts.get(c.state) || 0) + 1)
+        locationCounts.set(c.state, (locationCounts.get(c.state) || 0) + 1)
       }
     }
 
     return {
-      availableTags: [...tagCounts.entries()]
-        .sort((a, b) => b[1] - a[1])
-        .map(([tag]) => tag),
       availableCompanies: [...companyCounts.entries()]
         .filter(([, count]) => count >= 2)
         .sort((a, b) => b[1] - a[1])
         .map(([company]) => company),
-      availableStates: [...stateCounts.entries()]
+      availableLocations: [...locationCounts.entries()]
         .filter(([, count]) => count >= 2)
         .sort((a, b) => b[1] - a[1])
         .map(([state]) => state),
@@ -70,11 +60,8 @@ export function HomeScreen({ theme, onToggleTheme }: HomeScreenProps) {
     if (!allContacts) return []
 
     let result = allContacts
-
-    // Apply filters first
     result = filterContacts(result, filters)
 
-    // Apply search
     if (query.trim()) {
       result = searchContacts(result, query)
     } else {
@@ -84,72 +71,61 @@ export function HomeScreen({ theme, onToggleTheme }: HomeScreenProps) {
     return result
   }, [allContacts, query, filters])
 
-  // Group by first letter for alpha headers (only when not searching)
-  const grouped = useMemo(() => {
-    if (query.trim()) return null
-
-    const groups = new Map<string, typeof displayedContacts>()
-    for (const c of displayedContacts) {
-      // Favorites group first
-      if (c.favorite === 1) {
-        const key = '★'
-        if (!groups.has(key)) groups.set(key, [])
-        groups.get(key)!.push(c)
-        continue
-      }
-      const letter = (c.firstName[0] || '#').toUpperCase()
-      if (!groups.has(letter)) groups.set(letter, [])
-      groups.get(letter)!.push(c)
-    }
-    return groups
-  }, [displayedContacts, query])
-
   if (!allContacts) return null
 
   return (
     <div className={styles.page}>
-      <Header
-        title="Rolodex"
-        theme={theme}
-        onToggleTheme={onToggleTheme}
-        actions={
-          <button
-            className={styles.settingsBtn}
-            onClick={() => navigate('/settings')}
-            aria-label="Settings"
-          >
-            <Settings size={18} />
-          </button>
-        }
-      />
-      <div className={styles.body}>
+      <div className={styles.topSection}>
+        <div className={styles.titleRow}>
+          <h1 className={styles.largeTitle}>Contacts</h1>
+          <div className={styles.titleActions}>
+            <button
+              className={styles.iconBtn}
+              onClick={() => navigate('/settings')}
+              aria-label="Settings"
+            >
+              <Settings size={22} />
+            </button>
+            <button
+              className={styles.iconBtn}
+              onClick={onToggleTheme}
+              aria-label="Toggle theme"
+            >
+              {theme === 'dark' ? (
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+              ) : (
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+              )}
+            </button>
+          </div>
+        </div>
         <SearchBar value={query} onChange={setQuery} />
         <FilterChips
           filters={filters}
           onFilterChange={setFilters}
-          availableTags={availableTags}
           availableCompanies={availableCompanies}
-          availableStates={availableStates}
+          availableLocations={availableLocations}
         />
-        <div className={styles.count}>
-          {displayedContacts.length} contact{displayedContacts.length !== 1 ? 's' : ''}
-        </div>
+      </div>
+
+      <div className={styles.body}>
         {displayedContacts.length === 0 ? (
-          <EmptyState />
+          query || filters.company || filters.location ? (
+            <EmptyState
+              title="No results"
+              subtitle="Try a different search or clear your filters."
+            />
+          ) : (
+            <EmptyState />
+          )
         ) : (
           <div className={styles.list}>
-            {grouped
-              ? [...grouped.entries()].map(([letter, contacts]) => (
-                  <div key={letter}>
-                    <div className={styles.alpha}>{letter}</div>
-                    {contacts.map((c) => (
-                      <ContactCard key={c.id} contact={c} />
-                    ))}
-                  </div>
-                ))
-              : displayedContacts.map((c) => (
-                  <ContactCard key={c.id} contact={c} />
-                ))}
+            <div className={styles.count}>
+              {displayedContacts.length} contact{displayedContacts.length !== 1 ? 's' : ''}
+            </div>
+            {displayedContacts.map((c) => (
+              <ContactCard key={c.id} contact={c} />
+            ))}
           </div>
         )}
       </div>

@@ -11,8 +11,7 @@ const fuseOptions: IFuseOptions<Contact> = {
     { name: 'city', weight: 1 },
     { name: 'state', weight: 1 },
     { name: 'email', weight: 1 },
-    { name: 'notes', weight: 0.5 },
-    { name: 'howWeMet', weight: 0.5 },
+    { name: 'notes.text', weight: 0.5 },
   ],
   threshold: 0.35,
   includeScore: true,
@@ -27,24 +26,11 @@ export function searchContacts(contacts: Contact[], query: string): Contact[] {
 export function filterContacts(
   contacts: Contact[],
   filters: {
-    tag?: string
     company?: string
-    state?: string
-    favoritesOnly?: boolean
+    location?: string
   }
 ): Contact[] {
   let filtered = contacts
-
-  if (filters.favoritesOnly) {
-    filtered = filtered.filter((c) => c.favorite === 1)
-  }
-
-  if (filters.tag) {
-    const tag = filters.tag.toLowerCase()
-    filtered = filtered.filter((c) =>
-      c.tags.some((t) => t.toLowerCase() === tag)
-    )
-  }
 
   if (filters.company) {
     filtered = filtered.filter(
@@ -52,9 +38,13 @@ export function filterContacts(
     )
   }
 
-  if (filters.state) {
+  if (filters.location) {
+    const loc = filters.location.toLowerCase()
     filtered = filtered.filter(
-      (c) => c.state.toLowerCase() === filters.state!.toLowerCase()
+      (c) =>
+        c.city.toLowerCase() === loc ||
+        c.state.toLowerCase() === loc ||
+        `${c.city}, ${c.state}`.toLowerCase() === loc
     )
   }
 
@@ -63,9 +53,7 @@ export function filterContacts(
 
 export function sortContacts(contacts: Contact[]): Contact[] {
   return [...contacts].sort((a, b) => {
-    // Favorites first
     if (a.favorite !== b.favorite) return b.favorite - a.favorite
-    // Then alphabetical by first name
     return a.firstName.localeCompare(b.firstName)
   })
 }

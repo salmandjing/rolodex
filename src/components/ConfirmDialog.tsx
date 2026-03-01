@@ -20,14 +20,14 @@ export function ConfirmDialog({
       <div className={styles.dialog} onClick={(e) => e.stopPropagation()}>
         <div className={styles.title}>{title}</div>
         <div className={styles.message}>{message}</div>
-        <div className={styles.actions}>
-          <button className={styles.cancelBtn} onClick={onCancel}>
-            Cancel
-          </button>
-          <button className={styles.confirmBtn} onClick={onConfirm}>
-            {confirmLabel}
-          </button>
-        </div>
+        <div className={styles.divider} />
+        <button className={styles.confirmBtn} onClick={onConfirm}>
+          {confirmLabel}
+        </button>
+        <div className={styles.divider} />
+        <button className={styles.cancelBtn} onClick={onCancel}>
+          Cancel
+        </button>
       </div>
     </div>
   )

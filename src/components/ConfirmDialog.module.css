@@ -1,66 +1,81 @@
 .overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 200;
   padding: 24px;
+  animation: fadeIn 150ms ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .dialog {
   background: var(--bg-secondary);
-  border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: 14px;
   padding: 24px;
-  max-width: 340px;
+  max-width: 300px;
   width: 100%;
+  text-align: center;
+  animation: scaleIn 200ms ease;
 }
 
 .title {
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 600;
+  letter-spacing: -0.02em;
   margin-bottom: 8px;
 }
 
 .message {
-  font-size: 13px;
+  font-size: 14px;
   color: var(--text-secondary);
-  margin-bottom: 20px;
-  line-height: 1.6;
+  margin-bottom: 24px;
+  line-height: 1.5;
 }
 
 .actions {
   display: flex;
+  flex-direction: column;
   gap: 8px;
-  justify-content: flex-end;
 }
 
 .cancelBtn {
-  padding: 8px 16px;
-  border-radius: 6px;
-  font-size: 13px;
-  font-weight: 500;
+  padding: 12px;
+  border-radius: 12px;
+  font-size: 17px;
+  font-weight: 400;
   background: var(--bg-tertiary);
-  color: var(--text-secondary);
-  transition: background 150ms ease;
+  color: var(--accent);
+  transition: opacity 120ms ease;
 }
 
-.cancelBtn:hover {
-  background: var(--border);
+.cancelBtn:active {
+  opacity: 0.7;
 }
 
 .confirmBtn {
-  padding: 8px 16px;
-  border-radius: 6px;
-  font-size: 13px;
-  font-weight: 500;
-  background: var(--danger);
-  color: #fff;
-  transition: background 150ms ease;
+  padding: 12px;
+  border-radius: 12px;
+  font-size: 17px;
+  font-weight: 600;
+  background: var(--danger-subtle);
+  color: var(--danger);
+  transition: opacity 120ms ease;
 }
 
-.confirmBtn:hover {
-  opacity: 0.9;
+.confirmBtn:active {
+  opacity: 0.7;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
 }

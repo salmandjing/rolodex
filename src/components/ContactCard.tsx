@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import { Star } from 'lucide-react'
 import type { Contact } from '../lib/db'
 import styles from './ContactCard.module.css'
 
@@ -13,34 +12,47 @@ function getInitials(contact: Contact): string {
   return (first + last).toUpperCase() || '?'
 }
 
-function getMeta(contact: Contact): string {
-  const parts: string[] = []
-  if (contact.title) parts.push(contact.title)
-  if (contact.company) parts.push(contact.company)
-  if (!parts.length && contact.city) parts.push(contact.city)
-  return parts.join(' · ')
+function timeAgo(ts: number): string {
+  const diff = Date.now() - ts
+  const minutes = Math.floor(diff / 60000)
+  if (minutes < 1) return 'just now'
+  if (minutes < 60) return `${minutes}m ago`
+  const hours = Math.floor(minutes / 60)
+  if (hours < 24) return `${hours}h ago`
+  const days = Math.floor(hours / 24)
+  if (days === 1) return 'yesterday'
+  if (days < 30) return `${days}d ago`
+  const months = Math.floor(days / 30)
+  if (months === 1) return '1mo ago'
+  if (months < 12) return `${months}mo ago`
+  return `${Math.floor(months / 12)}y ago`
 }
 
 export function ContactCard({ contact }: ContactCardProps) {
+  const latestNote = contact.notes.length > 0
+    ? contact.notes.reduce((a, b) => (a.createdAt > b.createdAt ? a : b))
+    : null
+
   return (
     <Link to={`/contact/${contact.id}`} className={styles.card}>
       <div className={styles.avatar}>{getInitials(contact)}</div>
-      <div className={styles.info}>
-        <div className={styles.name}>
-          {contact.firstName} {contact.lastName}
+      <div className={styles.content}>
+        <div className={styles.topRow}>
+          <span className={styles.name}>
+            {contact.firstName} {contact.lastName}
+          </span>
+          {latestNote && (
+            <span className={styles.time}>{timeAgo(latestNote.createdAt)}</span>
+          )}
         </div>
-        {getMeta(contact) && <div className={styles.meta}>{getMeta(contact)}</div>}
-      </div>
-      <div className={styles.right}>
-        {contact.favorite === 1 && (
-          <Star size={14} className={styles.star} fill="var(--favorite)" />
+        {contact.company && (
+          <div className={styles.company}>{contact.company}{contact.title ? ` \u00B7 ${contact.title}` : ''}</div>
         )}
-        {contact.tags.length > 0 && (
-          <div className={styles.tags}>
-            {contact.tags.slice(0, 2).map((tag) => (
-              <span key={tag} className={styles.tag}>{tag}</span>
-            ))}
-          </div>
+        {!contact.company && contact.title && (
+          <div className={styles.company}>{contact.title}</div>
+        )}
+        {latestNote && (
+          <div className={styles.notePreview}>{latestNote.text}</div>
         )}
       </div>
     </Link>

@@ -3,24 +3,36 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 48px 24px;
+  padding: 80px 32px;
   text-align: center;
   gap: 12px;
 }
 
+.iconWrap {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--bg-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
 .icon {
   color: var(--text-tertiary);
-  margin-bottom: 4px;
 }
 
 .title {
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 600;
-  color: var(--text-secondary);
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
 }
 
 .subtitle {
-  font-size: 13px;
-  color: var(--text-tertiary);
+  font-size: 15px;
+  color: var(--text-secondary);
   max-width: 260px;
+  line-height: 1.5;
 }

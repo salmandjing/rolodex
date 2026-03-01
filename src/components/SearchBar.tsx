@@ -7,10 +7,10 @@ interface SearchBarProps {
   placeholder?: string
 }
 
-export function SearchBar({ value, onChange, placeholder = 'Search contacts...' }: SearchBarProps) {
+export function SearchBar({ value, onChange, placeholder = 'Search' }: SearchBarProps) {
   return (
     <div className={styles.wrapper}>
-      <Search size={18} className={styles.icon} />
+      <Search size={16} className={styles.icon} />
       <input
         type="text"
         className={styles.input}
@@ -22,7 +22,7 @@ export function SearchBar({ value, onChange, placeholder = 'Search contacts...' 
       />
       {value && (
         <button className={styles.clear} onClick={() => onChange('')} aria-label="Clear search">
-          <X size={16} />
+          <X size={14} />
         </button>
       )}
     </div>

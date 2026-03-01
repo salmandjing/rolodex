@@ -6,23 +6,23 @@
 
 .body {
   flex: 1;
-  padding: 16px;
+  padding: 8px 20px;
   max-width: 600px;
   width: 100%;
   margin: 0 auto;
 }
 
 .toast {
-  padding: 10px 14px;
-  border-radius: 8px;
-  font-size: 13px;
+  padding: 12px 16px;
+  border-radius: 14px;
+  font-size: 15px;
   font-weight: 500;
   margin-bottom: 16px;
-  animation: fadeIn 200ms ease;
+  animation: slideUp 200ms ease;
 }
 
 .success {
-  background: rgba(34, 197, 94, 0.12);
+  background: rgba(48, 209, 88, 0.12);
   color: var(--success);
 }
 
@@ -31,76 +31,76 @@
   color: var(--danger);
 }
 
-.section {
-  margin-bottom: 24px;
-}
-
-.sectionTitle {
-  font-size: 12px;
-  font-weight: 600;
+.sectionLabel {
+  font-size: 13px;
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--text-tertiary);
-  margin-bottom: 8px;
-  padding-left: 4px;
+  letter-spacing: 0.02em;
+  color: var(--text-secondary);
+  padding: 16px 4px 8px;
 }
 
-.actionBtn {
+.card {
+  background: var(--bg-secondary);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.divider {
+  height: 1px;
+  background: var(--separator);
+  margin-left: 52px;
+}
+
+.row {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   width: 100%;
-  padding: 14px;
-  background: var(--bg-secondary);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  color: var(--text-primary);
-  transition: background 150ms ease;
-  margin-bottom: 8px;
+  padding: 14px 16px;
   text-align: left;
+  transition: background 100ms ease;
 }
 
-.actionBtn:hover {
+.row:active {
   background: var(--bg-tertiary);
 }
 
-.actionBtn.danger {
+.rowIconAccent {
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.rowIconDanger {
+  color: var(--danger);
+  flex-shrink: 0;
+}
+
+.rowText {
+  flex: 1;
+  font-size: 17px;
+}
+
+.rowTextDanger {
+  flex: 1;
+  font-size: 17px;
   color: var(--danger);
 }
 
-.actionBtn.danger:hover {
-  background: var(--danger-subtle);
-}
-
-.actionText {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.actionLabel {
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.actionDesc {
-  font-size: 12px;
-  color: var(--text-secondary);
-}
-
-.danger .actionDesc {
-  color: var(--danger);
-  opacity: 0.7;
+.chevron {
+  color: var(--text-tertiary);
+  flex-shrink: 0;
 }
 
 .footer {
   text-align: center;
-  font-size: 12px;
+  font-size: 13px;
   color: var(--text-tertiary);
-  margin-top: 32px;
+  margin-top: 40px;
+  padding-bottom: 24px;
 }
 
-@keyframes fadeIn {
+@keyframes slideUp {
   from { opacity: 0; transform: translateY(-4px); }
   to { opacity: 1; transform: translateY(0); }
 }

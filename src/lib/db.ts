@@ -1,5 +1,11 @@
 import Dexie, { type EntityTable } from 'dexie'
 
+export interface Note {
+  id: string
+  text: string
+  createdAt: number
+}
+
 export interface Contact {
   id: string
   firstName: string
@@ -10,16 +16,9 @@ export interface Contact {
   email: string
   city: string
   state: string
-  country: string
-  linkedin: string
-  twitter: string
-  website: string
   tags: string[]
-  howWeMet: string
-  notes: string
+  notes: Note[]
   favorite: number // 0 or 1 — indexed booleans need to be numbers in IndexedDB
-  lastContacted: number | null
-  relationshipStrength: 1 | 2 | 3 | 4 | 5
   createdAt: number
   updatedAt: number
 }
@@ -28,9 +27,9 @@ export const db = new Dexie('RolodexDB') as Dexie & {
   contacts: EntityTable<Contact, 'id'>
 }
 
-db.version(1).stores({
+db.version(2).stores({
   contacts:
-    'id, firstName, lastName, company, state, *tags, favorite, updatedAt, lastContacted',
+    'id, firstName, lastName, company, city, state, *tags, favorite, updatedAt',
 })
 
 export function createEmptyContact(): Omit<Contact, 'id' | 'createdAt' | 'updatedAt'> {
@@ -43,15 +42,8 @@ export function createEmptyContact(): Omit<Contact, 'id' | 'createdAt' | 'update
     email: '',
     city: '',
     state: '',
-    country: 'US',
-    linkedin: '',
-    twitter: '',
-    website: '',
     tags: [],
-    howWeMet: '',
-    notes: '',
+    notes: [],
     favorite: 0,
-    lastContacted: null,
-    relationshipStrength: 3,
   }
 }

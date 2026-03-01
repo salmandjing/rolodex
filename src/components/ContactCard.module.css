@@ -1,18 +1,15 @@
 .card {
   display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px 16px;
-  background: var(--bg-secondary);
-  border: 1px solid var(--border);
-  border-radius: 8px;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 20px;
   text-decoration: none;
   color: inherit;
-  transition: border-color 150ms ease, background 150ms ease;
+  transition: background 100ms ease;
+  border-bottom: 1px solid var(--separator);
 }
 
-.card:hover {
-  border-color: var(--accent);
+.card:active {
   background: var(--bg-tertiary);
 }
 
@@ -20,60 +17,62 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
   background: var(--accent-subtle);
   color: var(--accent);
   font-weight: 600;
-  font-size: 16px;
+  font-size: 17px;
   flex-shrink: 0;
   text-transform: uppercase;
+  margin-top: 1px;
 }
 
-.info {
+.content {
   flex: 1;
   min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.topRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
 }
 
 .name {
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 600;
+  letter-spacing: -0.02em;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.meta {
-  font-size: 12px;
+.time {
+  font-size: 13px;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+}
+
+.company {
+  font-size: 14px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.notePreview {
+  font-size: 14px;
   color: var(--text-secondary);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   margin-top: 1px;
-}
-
-.right {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 4px;
-  flex-shrink: 0;
-}
-
-.star {
-  color: var(--favorite);
-}
-
-.tags {
-  display: flex;
-  gap: 4px;
-}
-
-.tag {
-  font-size: 10px;
-  padding: 2px 6px;
-  background: var(--bg-tertiary);
-  border-radius: 10px;
-  color: var(--text-secondary);
+  opacity: 0.7;
 }

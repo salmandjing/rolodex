@@ -3,7 +3,7 @@ import { Header } from '../components/Header'
 import { ConfirmDialog } from '../components/ConfirmDialog'
 import { db, type Contact } from '../lib/db'
 import { seedDatabase } from '../lib/seed'
-import { Download, Upload, Trash2, RotateCcw } from 'lucide-react'
+import { Download, Upload, Trash2, RotateCcw, ChevronRight } from 'lucide-react'
 import type { Theme } from '../lib/theme'
 import styles from './SettingsScreen.module.css'
 
@@ -49,7 +49,6 @@ export function SettingsScreen({ theme, onToggleTheme }: SettingsScreenProps) {
         const text = await file.text()
         const contacts: Contact[] = JSON.parse(text)
         if (!Array.isArray(contacts)) throw new Error('Invalid format')
-        // Validate at least basic fields
         for (const c of contacts) {
           if (!c.id || !c.firstName) throw new Error('Invalid contact data')
         }
@@ -78,7 +77,7 @@ export function SettingsScreen({ theme, onToggleTheme }: SettingsScreenProps) {
       await seedDatabase()
       showStatus('success', 'Sample contacts restored')
     } catch {
-      showStatus('error', 'Failed to reseed')
+      showStatus('error', 'Failed to restore')
     }
   }
 
@@ -92,50 +91,37 @@ export function SettingsScreen({ theme, onToggleTheme }: SettingsScreenProps) {
           </div>
         )}
 
-        <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>Backup</h2>
-
-          <button className={styles.actionBtn} onClick={handleExport}>
-            <Download size={18} />
-            <div className={styles.actionText}>
-              <span className={styles.actionLabel}>Export Contacts</span>
-              <span className={styles.actionDesc}>Download all contacts as a JSON file</span>
-            </div>
+        <div className={styles.sectionLabel}>Backup</div>
+        <div className={styles.card}>
+          <button className={styles.row} onClick={handleExport}>
+            <Download size={20} className={styles.rowIconAccent} />
+            <span className={styles.rowText}>Export Contacts</span>
+            <ChevronRight size={16} className={styles.chevron} />
           </button>
-
-          <button className={styles.actionBtn} onClick={handleImport}>
-            <Upload size={18} />
-            <div className={styles.actionText}>
-              <span className={styles.actionLabel}>Import Contacts</span>
-              <span className={styles.actionDesc}>Load contacts from a JSON backup file</span>
-            </div>
+          <div className={styles.divider} />
+          <button className={styles.row} onClick={handleImport}>
+            <Upload size={20} className={styles.rowIconAccent} />
+            <span className={styles.rowText}>Import Contacts</span>
+            <ChevronRight size={16} className={styles.chevron} />
           </button>
-        </section>
+        </div>
 
-        <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>Data</h2>
-
-          <button className={styles.actionBtn} onClick={handleReseed}>
-            <RotateCcw size={18} />
-            <div className={styles.actionText}>
-              <span className={styles.actionLabel}>Restore Sample Data</span>
-              <span className={styles.actionDesc}>Clear and reload demo contacts</span>
-            </div>
+        <div className={styles.sectionLabel}>Data</div>
+        <div className={styles.card}>
+          <button className={styles.row} onClick={handleReseed}>
+            <RotateCcw size={20} className={styles.rowIconAccent} />
+            <span className={styles.rowText}>Restore Sample Data</span>
+            <ChevronRight size={16} className={styles.chevron} />
           </button>
-
-          <button
-            className={`${styles.actionBtn} ${styles.danger}`}
-            onClick={() => setShowClearConfirm(true)}
-          >
-            <Trash2 size={18} />
-            <div className={styles.actionText}>
-              <span className={styles.actionLabel}>Delete All Contacts</span>
-              <span className={styles.actionDesc}>Permanently remove all data</span>
-            </div>
+          <div className={styles.divider} />
+          <button className={styles.row} onClick={() => setShowClearConfirm(true)}>
+            <Trash2 size={20} className={styles.rowIconDanger} />
+            <span className={styles.rowTextDanger}>Delete All Contacts</span>
+            <ChevronRight size={16} className={styles.chevron} />
           </button>
-        </section>
+        </div>
 
-        <p className={styles.footer}>Rolodex v1.0 — your data stays on this device.</p>
+        <p className={styles.footer}>Rolodex — your data stays on this device.</p>
       </div>
 
       {showClearConfirm && (

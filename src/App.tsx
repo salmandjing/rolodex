@@ -5,14 +5,16 @@ import { ContactDetailScreen } from './screens/ContactDetailScreen'
 import { ContactFormScreen } from './screens/ContactFormScreen'
 import { SettingsScreen } from './screens/SettingsScreen'
 import { seedDatabase } from './lib/seed'
-import { initTheme, setTheme, type Theme } from './lib/theme'
+import { getStoredTheme, setTheme, type Theme } from './lib/theme'
 
 export default function App() {
-  const [theme, setThemeState] = useState<Theme>('dark')
+  const [theme, setThemeState] = useState<Theme>(() => {
+    const t = getStoredTheme()
+    setTheme(t)
+    return t
+  })
 
   useEffect(() => {
-    const t = initTheme()
-    setThemeState(t)
     seedDatabase()
   }, [])
 

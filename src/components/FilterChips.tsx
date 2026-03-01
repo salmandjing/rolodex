@@ -1,58 +1,42 @@
-import { Star, Tag, Building2, MapPin } from 'lucide-react'
+import { Building2, MapPin } from 'lucide-react'
 import styles from './FilterChips.module.css'
 
 export interface Filters {
-  favoritesOnly: boolean
-  tag: string
   company: string
-  state: string
+  location: string
 }
 
 interface FilterChipsProps {
   filters: Filters
   onFilterChange: (filters: Filters) => void
-  availableTags: string[]
   availableCompanies: string[]
-  availableStates: string[]
+  availableLocations: string[]
 }
 
 export function FilterChips({
   filters,
   onFilterChange,
-  availableTags,
   availableCompanies,
-  availableStates,
+  availableLocations,
 }: FilterChipsProps) {
-  const toggleFavorites = () =>
-    onFilterChange({ ...filters, favoritesOnly: !filters.favoritesOnly })
-
-  const toggleTag = (tag: string) =>
-    onFilterChange({ ...filters, tag: filters.tag === tag ? '' : tag })
-
   const toggleCompany = (company: string) =>
     onFilterChange({ ...filters, company: filters.company === company ? '' : company })
 
-  const toggleState = (state: string) =>
-    onFilterChange({ ...filters, state: filters.state === state ? '' : state })
+  const toggleLocation = (location: string) =>
+    onFilterChange({ ...filters, location: filters.location === location ? '' : location })
+
+  if (availableCompanies.length === 0 && availableLocations.length === 0) return null
 
   return (
     <div className={styles.wrapper}>
-      <button
-        className={`${styles.chip} ${filters.favoritesOnly ? styles.chipActive : ''}`}
-        onClick={toggleFavorites}
-      >
-        <span className={styles.chipIcon}><Star size={12} /></span>
-        Favorites
-      </button>
-
-      {availableTags.map((tag) => (
+      {availableLocations.map((loc) => (
         <button
-          key={tag}
-          className={`${styles.chip} ${filters.tag === tag ? styles.chipActive : ''}`}
-          onClick={() => toggleTag(tag)}
+          key={loc}
+          className={`${styles.chip} ${filters.location === loc ? styles.chipActive : ''}`}
+          onClick={() => toggleLocation(loc)}
         >
-          <span className={styles.chipIcon}><Tag size={12} /></span>
-          {tag}
+          <MapPin size={13} className={styles.chipIcon} />
+          {loc}
         </button>
       ))}
 
@@ -62,19 +46,8 @@ export function FilterChips({
           className={`${styles.chip} ${filters.company === company ? styles.chipActive : ''}`}
           onClick={() => toggleCompany(company)}
         >
-          <span className={styles.chipIcon}><Building2 size={12} /></span>
+          <Building2 size={13} className={styles.chipIcon} />
           {company}
-        </button>
-      ))}
-
-      {availableStates.map((state) => (
-        <button
-          key={state}
-          className={`${styles.chip} ${filters.state === state ? styles.chipActive : ''}`}
-          onClick={() => toggleState(state)}
-        >
-          <span className={styles.chipIcon}><MapPin size={12} /></span>
-          {state}
         </button>
       ))}
     </div>
