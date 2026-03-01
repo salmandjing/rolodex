@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { HomeScreen } from './screens/HomeScreen'
 import { ContactDetailScreen } from './screens/ContactDetailScreen'
 import { ContactFormScreen } from './screens/ContactFormScreen'
+import { SettingsScreen } from './screens/SettingsScreen'
 import { seedDatabase } from './lib/seed'
 import { initTheme, setTheme, type Theme } from './lib/theme'
 
@@ -39,6 +40,10 @@ export default function App() {
         <Route
           path="/contact/:id/edit"
           element={<ContactFormScreen theme={theme} onToggleTheme={toggleTheme} />}
+        />
+        <Route
+          path="/settings"
+          element={<SettingsScreen theme={theme} onToggleTheme={toggleTheme} />}
         />
       </Routes>
     </BrowserRouter>

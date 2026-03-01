@@ -1,4 +1,5 @@
 import { useState, useMemo } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { db } from '../lib/db'
 import { searchContacts, filterContacts, sortContacts } from '../lib/search'
@@ -8,6 +9,7 @@ import { FilterChips, type Filters } from '../components/FilterChips'
 import { ContactCard } from '../components/ContactCard'
 import { FAB } from '../components/FAB'
 import { EmptyState } from '../components/EmptyState'
+import { Settings } from 'lucide-react'
 import type { Theme } from '../lib/theme'
 import styles from './HomeScreen.module.css'
 
@@ -24,6 +26,7 @@ const defaultFilters: Filters = {
 }
 
 export function HomeScreen({ theme, onToggleTheme }: HomeScreenProps) {
+  const navigate = useNavigate()
   const [query, setQuery] = useState('')
   const [filters, setFilters] = useState<Filters>(defaultFilters)
 
@@ -105,7 +108,20 @@ export function HomeScreen({ theme, onToggleTheme }: HomeScreenProps) {
 
   return (
     <div className={styles.page}>
-      <Header title="Rolodex" theme={theme} onToggleTheme={onToggleTheme} />
+      <Header
+        title="Rolodex"
+        theme={theme}
+        onToggleTheme={onToggleTheme}
+        actions={
+          <button
+            className={styles.settingsBtn}
+            onClick={() => navigate('/settings')}
+            aria-label="Settings"
+          >
+            <Settings size={18} />
+          </button>
+        }
+      />
       <div className={styles.body}>
         <SearchBar value={query} onChange={setQuery} />
         <FilterChips

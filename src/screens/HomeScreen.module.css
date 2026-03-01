@@ -28,6 +28,22 @@
   padding-bottom: 80px;
 }
 
+.settingsBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  color: var(--text-secondary);
+  transition: all 150ms ease;
+}
+
+.settingsBtn:hover {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
 .alpha {
   font-size: 11px;
   font-weight: 600;
