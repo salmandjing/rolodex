@@ -6,6 +6,10 @@ import { ContactFormScreen } from './screens/ContactFormScreen'
 import { SettingsScreen } from './screens/SettingsScreen'
 import { seedDatabase } from './lib/seed'
 import { getStoredTheme, setTheme, type Theme } from './lib/theme'
+import { handleOAuthRedirect, installBackupHooks } from './lib/gdrive'
+
+// Install Dexie hooks once at module level
+installBackupHooks()
 
 export default function App() {
   const [theme, setThemeState] = useState<Theme>(() => {
@@ -16,6 +20,7 @@ export default function App() {
 
   useEffect(() => {
     seedDatabase()
+    handleOAuthRedirect()
   }, [])
 
   const toggleTheme = () => {

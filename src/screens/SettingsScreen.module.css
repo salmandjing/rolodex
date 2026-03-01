@@ -87,6 +87,23 @@
   color: var(--danger);
 }
 
+.rowIconSuccess {
+  color: var(--success);
+  flex-shrink: 0;
+}
+
+.rowTextCol {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.rowSub {
+  font-size: 13px;
+  color: var(--text-tertiary);
+  margin-top: 2px;
+}
+
 .chevron {
   color: var(--text-tertiary);
   flex-shrink: 0;

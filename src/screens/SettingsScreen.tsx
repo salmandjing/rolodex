@@ -1,9 +1,25 @@
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import { Header } from '../components/Header'
 import { ConfirmDialog } from '../components/ConfirmDialog'
 import { db, type Contact } from '../lib/db'
 import { seedDatabase } from '../lib/seed'
-import { Download, Upload, Trash2, RotateCcw, ChevronRight } from 'lucide-react'
+import {
+  isConnected,
+  getLastBackupTime,
+  startOAuth,
+  clearAuth,
+  backupToDrive,
+} from '../lib/gdrive'
+import {
+  Download,
+  Upload,
+  Trash2,
+  RotateCcw,
+  ChevronRight,
+  CloudUpload,
+  Check,
+  Unplug,
+} from 'lucide-react'
 import type { Theme } from '../lib/theme'
 import styles from './SettingsScreen.module.css'
 
@@ -12,9 +28,20 @@ interface SettingsScreenProps {
   onToggleTheme: () => void
 }
 
+function formatBackupTime(ts: number): string {
+  const diff = Date.now() - ts
+  if (diff < 60_000) return 'just now'
+  if (diff < 3_600_000) return `${Math.floor(diff / 60_000)}m ago`
+  if (diff < 86_400_000) return `${Math.floor(diff / 3_600_000)}h ago`
+  return new Date(ts).toLocaleDateString()
+}
+
 export function SettingsScreen({ theme, onToggleTheme }: SettingsScreenProps) {
   const [status, setStatus] = useState<{ type: 'success' | 'error'; text: string } | null>(null)
   const [showClearConfirm, setShowClearConfirm] = useState(false)
+  const [gdriveConnected, setGdriveConnected] = useState(isConnected)
+  const [lastBackup, setLastBackup] = useState(getLastBackupTime)
+  const [backingUp, setBackingUp] = useState(false)
 
   const showStatus = (type: 'success' | 'error', text: string) => {
     setStatus({ type, text })
@@ -81,6 +108,30 @@ export function SettingsScreen({ theme, onToggleTheme }: SettingsScreenProps) {
     }
   }
 
+  const handleConnectGdrive = () => {
+    startOAuth()
+  }
+
+  const handleDisconnectGdrive = () => {
+    clearAuth()
+    setGdriveConnected(false)
+    setLastBackup(null)
+    showStatus('success', 'Google Drive disconnected')
+  }
+
+  const handleManualBackup = useCallback(async () => {
+    setBackingUp(true)
+    try {
+      await backupToDrive()
+      setLastBackup(Date.now())
+      showStatus('success', 'Backed up to Google Drive')
+    } catch {
+      showStatus('error', 'Backup failed — try reconnecting')
+    } finally {
+      setBackingUp(false)
+    }
+  }, [])
+
   return (
     <div className={styles.page}>
       <Header title="Settings" showBack theme={theme} onToggleTheme={onToggleTheme} />
@@ -104,6 +155,49 @@ export function SettingsScreen({ theme, onToggleTheme }: SettingsScreenProps) {
             <span className={styles.rowText}>Import Contacts</span>
             <ChevronRight size={16} className={styles.chevron} />
           </button>
+        </div>
+
+        <div className={styles.sectionLabel}>Google Drive</div>
+        <div className={styles.card}>
+          {gdriveConnected ? (
+            <>
+              <div className={styles.row}>
+                <Check size={20} className={styles.rowIconSuccess} />
+                <div className={styles.rowTextCol}>
+                  <span className={styles.rowText}>Connected</span>
+                  {lastBackup && (
+                    <span className={styles.rowSub}>
+                      Last backup: {formatBackupTime(lastBackup)}
+                    </span>
+                  )}
+                </div>
+              </div>
+              <div className={styles.divider} />
+              <button
+                className={styles.row}
+                onClick={handleManualBackup}
+                disabled={backingUp}
+              >
+                <CloudUpload size={20} className={styles.rowIconAccent} />
+                <span className={styles.rowText}>
+                  {backingUp ? 'Backing up...' : 'Backup Now'}
+                </span>
+                <ChevronRight size={16} className={styles.chevron} />
+              </button>
+              <div className={styles.divider} />
+              <button className={styles.row} onClick={handleDisconnectGdrive}>
+                <Unplug size={20} className={styles.rowIconDanger} />
+                <span className={styles.rowTextDanger}>Disconnect</span>
+                <ChevronRight size={16} className={styles.chevron} />
+              </button>
+            </>
+          ) : (
+            <button className={styles.row} onClick={handleConnectGdrive}>
+              <CloudUpload size={20} className={styles.rowIconAccent} />
+              <span className={styles.rowText}>Connect Google Drive</span>
+              <ChevronRight size={16} className={styles.chevron} />
+            </button>
+          )}
         </div>
 
         <div className={styles.sectionLabel}>Data</div>
