@@ -14,7 +14,9 @@ const LS_LAST_BACKUP = 'rolodex-gdrive-last-backup'
 // ── Auth ──────────────────────────────────────────────
 
 function getRedirectUri(): string {
-  return window.location.origin + '/';
+  // Use the base path so it works on GitHub Pages (/rolodex/) and localhost
+  const base = import.meta.env.BASE_URL || '/'
+  return window.location.origin + base
 }
 
 export function getToken(): string | null {
