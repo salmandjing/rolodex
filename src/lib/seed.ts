@@ -137,8 +137,12 @@ const sampleContacts: Omit<Contact, 'id' | 'createdAt' | 'updatedAt'>[] = [
 ]
 
 export async function seedDatabase() {
+  if (localStorage.getItem('rolodex-seeded')) return
   const count = await db.contacts.count()
-  if (count > 0) return
+  if (count > 0) {
+    localStorage.setItem('rolodex-seeded', '1')
+    return
+  }
 
   const contacts: Contact[] = sampleContacts.map((c, i) => ({
     ...c,
@@ -148,4 +152,5 @@ export async function seedDatabase() {
   }))
 
   await db.contacts.bulkAdd(contacts)
+  localStorage.setItem('rolodex-seeded', '1')
 }
