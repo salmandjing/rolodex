@@ -16,7 +16,6 @@ export interface Contact {
   email: string
   city: string
   state: string
-  tags: string[]
   notes: Note[]
   favorite: number // 0 or 1 — indexed booleans need to be numbers in IndexedDB
   createdAt: number
@@ -29,7 +28,7 @@ export const db = new Dexie('RolodexDB') as Dexie & {
 
 db.version(2).stores({
   contacts:
-    'id, firstName, lastName, company, city, state, *tags, favorite, updatedAt',
+    'id, firstName, lastName, company, city, state, favorite, updatedAt',
 })
 
 export function createEmptyContact(): Omit<Contact, 'id' | 'createdAt' | 'updatedAt'> {
@@ -42,7 +41,6 @@ export function createEmptyContact(): Omit<Contact, 'id' | 'createdAt' | 'update
     email: '',
     city: '',
     state: '',
-    tags: [],
     notes: [],
     favorite: 0,
   }

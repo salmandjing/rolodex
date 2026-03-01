@@ -7,7 +7,6 @@ const fuseOptions: IFuseOptions<Contact> = {
     { name: 'lastName', weight: 3 },
     { name: 'company', weight: 2 },
     { name: 'title', weight: 1.5 },
-    { name: 'tags', weight: 1.5 },
     { name: 'city', weight: 1 },
     { name: 'state', weight: 1 },
     { name: 'email', weight: 1 },

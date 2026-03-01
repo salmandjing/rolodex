@@ -68,7 +68,7 @@ export function ContactDetailScreen({ theme, onToggleTheme }: ContactDetailScree
 
   const handleToggleFavorite = async () => {
     await db.contacts.update(contact.id, {
-      favorite: contact.favorite === 1 ? 0 : 1,
+      favorite: contact.favorite ? 0 : 1,
       updatedAt: Date.now(),
     })
   }
@@ -267,18 +267,6 @@ export function ContactDetailScreen({ theme, onToggleTheme }: ContactDetailScree
             )}
           </div>
         </div>
-
-        {/* Tags */}
-        {contact.tags.length > 0 && (
-          <div className={styles.section}>
-            <div className={styles.sectionTitle}>Tags</div>
-            <div className={styles.tags}>
-              {contact.tags.map((tag) => (
-                <span key={tag} className={styles.tag}>{tag}</span>
-              ))}
-            </div>
-          </div>
-        )}
 
         {/* Delete */}
         <div className={styles.dangerSection}>

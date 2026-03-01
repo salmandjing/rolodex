@@ -1,7 +1,6 @@
-import { useState, useMemo } from 'react'
+import { useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useLiveQuery } from 'dexie-react-hooks'
-import { X } from 'lucide-react'
 import { nanoid } from 'nanoid'
 import { db, createEmptyContact, type Contact } from '../lib/db'
 import { Header } from '../components/Header'
@@ -16,26 +15,15 @@ interface ContactFormScreenProps {
 export function ContactFormScreen({ theme, onToggleTheme }: ContactFormScreenProps) {
   const { id } = useParams<{ id: string }>()
   const navigate = useNavigate()
-  const isNew = id === 'new'
+  const isNew = !id
 
   const existingContact = useLiveQuery(
     () => (!isNew && id ? db.contacts.get(id) : undefined),
     [id, isNew]
   )
 
-  const allContacts = useLiveQuery(() => db.contacts.toArray(), [])
-  const existingTags = useMemo(() => {
-    if (!allContacts) return []
-    const tagSet = new Set<string>()
-    for (const c of allContacts) {
-      for (const t of c.tags) tagSet.add(t)
-    }
-    return [...tagSet].sort()
-  }, [allContacts])
-
   const [formLoaded, setFormLoaded] = useState(false)
   const [form, setForm] = useState(createEmptyContact())
-  const [tagInput, setTagInput] = useState('')
 
   // Load existing contact data once
   if (!isNew && existingContact && !formLoaded) {
@@ -48,7 +36,6 @@ export function ContactFormScreen({ theme, onToggleTheme }: ContactFormScreenPro
       email: existingContact.email,
       city: existingContact.city,
       state: existingContact.state,
-      tags: [...existingContact.tags],
       notes: [...existingContact.notes],
       favorite: existingContact.favorite,
     })
@@ -57,27 +44,6 @@ export function ContactFormScreen({ theme, onToggleTheme }: ContactFormScreenPro
 
   const updateField = <K extends keyof typeof form>(key: K, value: (typeof form)[K]) => {
     setForm((prev) => ({ ...prev, [key]: value }))
-  }
-
-  const addTag = (tag: string) => {
-    const trimmed = tag.trim().toLowerCase()
-    if (trimmed && !form.tags.includes(trimmed)) {
-      updateField('tags', [...form.tags, trimmed])
-    }
-    setTagInput('')
-  }
-
-  const removeTag = (tag: string) => {
-    updateField('tags', form.tags.filter((t) => t !== tag))
-  }
-
-  const handleTagKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter' || e.key === ',') {
-      e.preventDefault()
-      addTag(tagInput)
-    } else if (e.key === 'Backspace' && !tagInput && form.tags.length > 0) {
-      removeTag(form.tags[form.tags.length - 1])
-    }
   }
 
   const handleSave = async () => {
@@ -106,10 +72,6 @@ export function ContactFormScreen({ theme, onToggleTheme }: ContactFormScreenPro
       navigate(`/contact/${id}`, { replace: true })
     }
   }
-
-  const suggestedTags = existingTags.filter(
-    (t) => !form.tags.includes(t) && (!tagInput || t.includes(tagInput.toLowerCase()))
-  )
 
   if (!isNew && !existingContact) {
     return (
@@ -230,45 +192,6 @@ export function ContactFormScreen({ theme, onToggleTheme }: ContactFormScreenPro
             </div>
           </div>
 
-          {/* Tags */}
-          <div className={styles.sectionLabel}>Tags</div>
-          <div className={styles.card}>
-            <div className={styles.tagInputWrap}>
-              {form.tags.map((tag) => (
-                <span key={tag} className={styles.tagChip}>
-                  {tag}
-                  <button
-                    className={styles.tagRemove}
-                    onClick={() => removeTag(tag)}
-                    type="button"
-                  >
-                    <X size={12} />
-                  </button>
-                </span>
-              ))}
-              <input
-                className={styles.tagTextInput}
-                value={tagInput}
-                onChange={(e) => setTagInput(e.target.value)}
-                onKeyDown={handleTagKeyDown}
-                placeholder={form.tags.length ? '' : 'Add tags...'}
-              />
-            </div>
-          </div>
-          {suggestedTags.length > 0 && (
-            <div className={styles.tagSuggestions}>
-              {suggestedTags.slice(0, 6).map((tag) => (
-                <button
-                  key={tag}
-                  className={styles.tagSuggestion}
-                  onClick={() => addTag(tag)}
-                  type="button"
-                >
-                  {tag}
-                </button>
-              ))}
-            </div>
-          )}
         </div>
       </div>
     </div>

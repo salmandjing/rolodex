@@ -46,11 +46,9 @@ export function HomeScreen({ theme, onToggleTheme }: HomeScreenProps) {
 
     return {
       availableCompanies: [...companyCounts.entries()]
-        .filter(([, count]) => count >= 2)
         .sort((a, b) => b[1] - a[1])
         .map(([company]) => company),
       availableLocations: [...locationCounts.entries()]
-        .filter(([, count]) => count >= 2)
         .sort((a, b) => b[1] - a[1])
         .map(([state]) => state),
     }

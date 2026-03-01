@@ -15,7 +15,6 @@ const sampleContacts: Omit<Contact, 'id' | 'createdAt' | 'updatedAt'>[] = [
     email: 'priya.sharma@stripe.com',
     city: 'San Francisco',
     state: 'CA',
-    tags: ['engineering', 'fintech'],
     notes: [
       { id: nanoid(), text: 'Super sharp on distributed systems', createdAt: now - 3 * day },
       { id: nanoid(), text: 'Offered to intro me to their hiring manager', createdAt: now - 7 * day },
@@ -32,7 +31,6 @@ const sampleContacts: Omit<Contact, 'id' | 'createdAt' | 'updatedAt'>[] = [
     email: 'marcus@a16z.com',
     city: 'Menlo Park',
     state: 'CA',
-    tags: ['investor', 'vc'],
     notes: [
       { id: nanoid(), text: 'Interested in developer tools and infra', createdAt: now - 14 * day },
       { id: nanoid(), text: 'Prefers warm intros, follows up fast', createdAt: now - 30 * day },
@@ -49,7 +47,6 @@ const sampleContacts: Omit<Contact, 'id' | 'createdAt' | 'updatedAt'>[] = [
     email: 'sarah.w@notion.so',
     city: 'New York',
     state: 'NY',
-    tags: ['product', 'design'],
     notes: [
       { id: nanoid(), text: 'Helped me refine our onboarding flow', createdAt: now - 15 * day },
       { id: nanoid(), text: 'Great product thinker', createdAt: now - 30 * day },
@@ -66,7 +63,6 @@ const sampleContacts: Omit<Contact, 'id' | 'createdAt' | 'updatedAt'>[] = [
     email: 'james.o@figma.com',
     city: 'Brooklyn',
     state: 'NY',
-    tags: ['design', 'friend'],
     notes: [
       { id: nanoid(), text: 'Freelances on the side for select projects', createdAt: now - 2 * day },
       { id: nanoid(), text: 'Kids name is Ayo', createdAt: now - 7 * day },
@@ -83,7 +79,6 @@ const sampleContacts: Omit<Contact, 'id' | 'createdAt' | 'updatedAt'>[] = [
     email: 'elena.r@datadoghq.com',
     city: 'Austin',
     state: 'TX',
-    tags: ['engineering', 'leadership'],
     notes: [
       { id: nanoid(), text: 'Building out their real-time alerting team', createdAt: now - 10 * day },
       { id: nanoid(), text: 'Looking for senior engineers', createdAt: now - 45 * day },
@@ -100,7 +95,6 @@ const sampleContacts: Omit<Contact, 'id' | 'createdAt' | 'updatedAt'>[] = [
     email: 'alex@vercel.com',
     city: 'Seattle',
     state: 'WA',
-    tags: ['devtools', 'frontend'],
     notes: [
       { id: nanoid(), text: 'Great for getting early access to Vercel features', createdAt: now - 2 * hour },
       { id: nanoid(), text: 'Super helpful and responsive', createdAt: now - 5 * day },
@@ -117,7 +111,6 @@ const sampleContacts: Omit<Contact, 'id' | 'createdAt' | 'updatedAt'>[] = [
     email: 'nina.patel@gs.com',
     city: 'New York',
     state: 'NY',
-    tags: ['finance', 'engineering'],
     notes: [
       { id: nanoid(), text: 'Good perspective on enterprise sales', createdAt: now - 20 * day },
       { id: nanoid(), text: 'Moved from SWE to management track', createdAt: now - 60 * day },
@@ -134,7 +127,6 @@ const sampleContacts: Omit<Contact, 'id' | 'createdAt' | 'updatedAt'>[] = [
     email: 'tom@tombradley.co',
     city: 'Denver',
     state: 'CO',
-    tags: ['consultant', 'strategy'],
     notes: [
       { id: nanoid(), text: 'Helps early-stage startups with GTM strategy', createdAt: now - 30 * day },
       { id: nanoid(), text: 'Reasonable rates', createdAt: now - 30 * day },

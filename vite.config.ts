@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [
     react(),
     VitePWA({
-      registerType: 'prompt',
+      registerType: 'autoUpdate',
       includeAssets: ['favicon.svg', 'apple-touch-icon.png'],
       manifest: {
         name: 'Rolodex',
@@ -40,4 +40,7 @@ export default defineConfig({
       },
     }),
   ],
+  server: {
+    allowedHosts: ['djsalman-xps-17-9720.tail1f2c6b.ts.net'],
+  },
 })
