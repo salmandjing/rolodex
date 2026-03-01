@@ -1,0 +1,1013 @@
+[
+  {
+    "id": "0qiy5ovqpa5",
+    "firstName": "Ekram",
+    "lastName": "Karim",
+    "company": "NEE",
+    "title": "AWS DEI - IC",
+    "phone": "",
+    "email": "",
+    "city": "",
+    "state": "FL",
+    "notes": [
+      {
+        "id": "n00kvt38i0p",
+        "text": "Met in Houston",
+        "createdAt": 1772296609803
+      },
+      {
+        "id": "itb8h2cfdh",
+        "text": "Plays ping pong",
+        "createdAt": 1772296609803
+      },
+      {
+        "id": "b7btn0mg229",
+        "text": "Wants to be an SA",
+        "createdAt": 1772296609803
+      },
+      {
+        "id": "x08mb4fui09",
+        "text": "Connected him with Bobby",
+        "createdAt": 1772296609803
+      }
+    ],
+    "favorite": 0,
+    "createdAt": 1769618209803,
+    "updatedAt": 1769618209803
+  },
+  {
+    "id": "lips2kn3w8i",
+    "firstName": "Carlos",
+    "lastName": "Sua",
+    "company": "NEE",
+    "title": "Dev - Engineering Construction",
+    "phone": "",
+    "email": "",
+    "city": "",
+    "state": "FL",
+    "notes": [
+      {
+        "id": "x4l85smyzz",
+        "text": "New on engineering construction. Used to work on transmission team",
+        "createdAt": 1772210209803
+      },
+      {
+        "id": "5nnzdin2a73",
+        "text": "From Colombia",
+        "createdAt": 1772210209803
+      },
+      {
+        "id": "8vdjmzwcuuh",
+        "text": "Manchester United Fan",
+        "createdAt": 1772210209803
+      },
+      {
+        "id": "n6u2n5dc63",
+        "text": "Will be a father in October 2024",
+        "createdAt": 1772210209803
+      }
+    ],
+    "favorite": 0,
+    "createdAt": 1769704609803,
+    "updatedAt": 1769704609803
+  },
+  {
+    "id": "5053gmvcdgc",
+    "firstName": "Ximena",
+    "lastName": "Carrilo",
+    "company": "NEE",
+    "title": "EDP FinOps and DR",
+    "phone": "",
+    "email": "",
+    "city": "",
+    "state": "FL",
+    "notes": [
+      {
+        "id": "d56fmnbp7ru",
+        "text": "From Colombia",
+        "createdAt": 1772123809803
+      },
+      {
+        "id": "m87cgfx7h8",
+        "text": "Likes to speak",
+        "createdAt": 1772123809803
+      },
+      {
+        "id": "1quo188jzlp",
+        "text": "EDP FinOps owner",
+        "createdAt": 1772123809803
+      }
+    ],
+    "favorite": 0,
+    "createdAt": 1769791009803,
+    "updatedAt": 1769791009803
+  },
+  {
+    "id": "ii8e9kqcfer",
+    "firstName": "Charumathi",
+    "lastName": "Prabu",
+    "company": "NEE",
+    "title": "EDP Analytics",
+    "phone": "",
+    "email": "",
+    "city": "",
+    "state": "FL",
+    "notes": [
+      {
+        "id": "rxjaoel2fs",
+        "text": "Works with Ximena on FinOps",
+        "createdAt": 1772037409803
+      },
+      {
+        "id": "dcyrv10wjch",
+        "text": "From India",
+        "createdAt": 1772037409803
+      },
+      {
+        "id": "1cshtz4rxx9",
+        "text": "Visited for class reunion in Q3 2024",
+        "createdAt": 1772037409803
+      }
+    ],
+    "favorite": 0,
+    "createdAt": 1769877409803,
+    "updatedAt": 1769877409803
+  },
+  {
+    "id": "oybywddd0ib",
+    "firstName": "Paul",
+    "lastName": "Ollukaren",
+    "company": "NEE",
+    "title": "EDP Lead",
+    "phone": "",
+    "email": "",
+    "city": "",
+    "state": "FL",
+    "notes": [
+      {
+        "id": "guedr43pept",
+        "text": "Leader but prefers to build",
+        "createdAt": 1771951009803
+      }
+    ],
+    "favorite": 0,
+    "createdAt": 1769963809803,
+    "updatedAt": 1769963809803
+  },
+  {
+    "id": "nwqig4g7it",
+    "firstName": "Navya",
+    "lastName": "Uddaraju",
+    "company": "NEE",
+    "title": "EDP IC",
+    "phone": "",
+    "email": "",
+    "city": "",
+    "state": "FL",
+    "notes": [
+      {
+        "id": "64da411ck6r",
+        "text": "Owns lots of data migration",
+        "createdAt": 1771864609803
+      }
+    ],
+    "favorite": 0,
+    "createdAt": 1770050209803,
+    "updatedAt": 1770050209803
+  },
+  {
+    "id": "2h77hytxh4d",
+    "firstName": "Cedric",
+    "lastName": "El Khoury",
+    "company": "NEE",
+    "title": "EDP IC",
+    "phone": "",
+    "email": "",
+    "city": "",
+    "state": "FL",
+    "notes": [
+      {
+        "id": "qo2lvd1wq0m",
+        "text": "Main dev",
+        "createdAt": 1771778209803
+      },
+      {
+        "id": "mhl4u4lo1w",
+        "text": "Lots of EDP knowledge",
+        "createdAt": 1771778209803
+      }
+    ],
+    "favorite": 0,
+    "createdAt": 1770136609803,
+    "updatedAt": 1770136609803
+  },
+  {
+    "id": "oymxa0s9dwe",
+    "firstName": "Anju",
+    "lastName": "Senan",
+    "company": "NEE",
+    "title": "EDP IC",
+    "phone": "",
+    "email": "",
+    "city": "",
+    "state": "FL",
+    "notes": [
+      {
+        "id": "bt1ut38kf",
+        "text": "Works on Immuta",
+        "createdAt": 1771691809803
+      }
+    ],
+    "favorite": 0,
+    "createdAt": 1770223009803,
+    "updatedAt": 1770223009803
+  },
+  {
+    "id": "g6q5i1v211",
+    "firstName": "David",
+    "lastName": "Dalmau",
+    "company": "NEE",
+    "title": "EDP IC",
+    "phone": "",
+    "email": "",
+    "city": "",
+    "state": "FL",
+    "notes": [
+      {
+        "id": "3xvitxabd2d",
+        "text": "Owns property",
+        "createdAt": 1771605409803
+      },
+      {
+        "id": "zwhakg5jxqq",
+        "text": "Likes personal connection",
+        "createdAt": 1771605409803
+      }
+    ],
+    "favorite": 0,
+    "createdAt": 1770309409803,
+    "updatedAt": 1770309409803
+  },
+  {
+    "id": "lrcjqklidrr",
+    "firstName": "Blake",
+    "lastName": "",
+    "company": "NEE",
+    "title": "ESRI",
+    "phone": "",
+    "email": "",
+    "city": "",
+    "state": "FL",
+    "notes": [
+      {
+        "id": "7q70id58xsx",
+        "text": "Helps teams use ESRI",
+        "createdAt": 1771519009803
+      },
+      {
+        "id": "0nzbl3dhdy8l",
+        "text": "Plays Sunday league",
+        "createdAt": 1771519009803
+      },
+      {
+        "id": "w2n5qq5b4i",
+        "text": "Smart",
+        "createdAt": 1771519009803
+      },
+      {
+        "id": "rdysfwsdb5d",
+        "text": "Him and Alana bought a house and are doing lots of repairs",
+        "createdAt": 1771519009803
+      },
+      {
+        "id": "ojqxb0f2v5",
+        "text": "From Florida but moved to Cali for school then came back",
+        "createdAt": 1771519009803
+      }
+    ],
+    "favorite": 0,
+    "createdAt": 1770395809803,
+    "updatedAt": 1770395809803
+  },
+  {
+    "id": "r6y93gv4mre",
+    "firstName": "Alana",
+    "lastName": "",
+    "company": "",
+    "title": "",
+    "phone": "",
+    "email": "",
+    "city": "",
+    "state": "FL",
+    "notes": [
+      {
+        "id": "kvohcjxx2dd",
+        "text": "Blake's wife",
+        "createdAt": 1771432609803
+      }
+    ],
+    "favorite": 0,
+    "createdAt": 1770482209803,
+    "updatedAt": 1770482209803
+  },
+  {
+    "id": "6e76kzulrop",
+    "firstName": "Rose",
+    "lastName": "",
+    "company": "",
+    "title": "",
+    "phone": "",
+    "email": "",
+    "city": "",
+    "state": "",
+    "notes": [],
+    "favorite": 0,
+    "createdAt": 1770568609803,
+    "updatedAt": 1770568609803
+  },
+  {
+    "id": "r8shy13uzh",
+    "firstName": "Nick",
+    "lastName": "",
+    "company": "NEE",
+    "title": "Power Distribution Dev Lead",
+    "phone": "",
+    "email": "",
+    "city": "",
+    "state": "FL",
+    "notes": [
+      {
+        "id": "bg55l84odj8",
+        "text": "Implements software to solve power gen needs at NextEra",
+        "createdAt": 1771259809803
+      }
+    ],
+    "favorite": 0,
+    "createdAt": 1770655009803,
+    "updatedAt": 1770655009803
+  },
+  {
+    "id": "ne6o36zdlx",
+    "firstName": "Kevin",
+    "lastName": "",
+    "company": "NEE",
+    "title": "Developer",
+    "phone": "",
+    "email": "",
+    "city": "",
+    "state": "FL",
+    "notes": [
+      {
+        "id": "jquwktkob7",
+        "text": "Developer on Nick's team",
+        "createdAt": 1771173409803
+      },
+      {
+        "id": "yrwmipvngnn",
+        "text": "NEE.AI was his baby then it was expanded by NEESOP",
+        "createdAt": 1771173409803
+      },
+      {
+        "id": "ae4di4u5cj9",
+        "text": "Met him in 2023 on Carlos island",
+        "createdAt": 1771173409803
+      }
+    ],
+    "favorite": 0,
+    "createdAt": 1770741409803,
+    "updatedAt": 1770741409803
+  },
+  {
+    "id": "g8h0p8uirb",
+    "firstName": "Scotty",
+    "lastName": "",
+    "company": "",
+    "title": "Government Contractor",
+    "phone": "",
+    "email": "",
+    "city": "",
+    "state": "",
+    "notes": [
+      {
+        "id": "cj391rwed2f",
+        "text": "Plays soccer",
+        "createdAt": 1771087009803
+      },
+      {
+        "id": "dlong05x2rc",
+        "text": "Hates the government people he works with",
+        "createdAt": 1771087009803
+      }
+    ],
+    "favorite": 0,
+    "createdAt": 1770827809803,
+    "updatedAt": 1770827809803
+  },
+  {
+    "id": "4vpd1x9dp7n",
+    "firstName": "Ney",
+    "lastName": "",
+    "company": "NEE",
+    "title": "",
+    "phone": "",
+    "email": "",
+    "city": "",
+    "state": "FL",
+    "notes": [
+      {
+        "id": "13qqy4oi27y9",
+        "text": "Met through Abhi",
+        "createdAt": 1771000609803
+      }
+    ],
+    "favorite": 0,
+    "createdAt": 1770914209803,
+    "updatedAt": 1770914209803
+  },
+  {
+    "id": "5vcc4vsinx3",
+    "firstName": "Luis",
+    "lastName": "Arenciba",
+    "company": "NEE",
+    "title": "EUC IT Lead",
+    "phone": "",
+    "email": "",
+    "city": "",
+    "state": "FL",
+    "notes": [
+      {
+        "id": "ios1r4mp88",
+        "text": "From Cuba",
+        "createdAt": 1770914209803
+      },
+      {
+        "id": "couediz7r4",
+        "text": "Likes jokes",
+        "createdAt": 1770914209803
+      }
+    ],
+    "favorite": 0,
+    "createdAt": 1771000609803,
+    "updatedAt": 1771000609803
+  },
+  {
+    "id": "x8sdtht0kn",
+    "firstName": "Amit",
+    "lastName": "Grover",
+    "company": "NEE",
+    "title": "Director",
+    "phone": "",
+    "email": "",
+    "city": "",
+    "state": "FL",
+    "notes": [
+      {
+        "id": "r3cf6khxwx",
+        "text": "From India",
+        "createdAt": 1770827809803
+      },
+      {
+        "id": "7azu9386xev",
+        "text": "Bought a house in early 2024 - remodeling",
+        "createdAt": 1770827809803
+      }
+    ],
+    "favorite": 0,
+    "createdAt": 1771087009803,
+    "updatedAt": 1771087009803
+  },
+  {
+    "id": "ezqzor8e4ds",
+    "firstName": "Liz",
+    "lastName": "Dennet",
+    "company": "Endolith",
+    "title": "CEO",
+    "phone": "",
+    "email": "",
+    "city": "",
+    "state": "",
+    "notes": [
+      {
+        "id": "td39oql4vl",
+        "text": "Was my intern manager for 2 weeks",
+        "createdAt": 1770741409803
+      },
+      {
+        "id": "3tqtgzh1iyy",
+        "text": "PhD in rocks",
+        "createdAt": 1770741409803
+      },
+      {
+        "id": "pzk2mcxhz1",
+        "text": "Lives frugally",
+        "createdAt": 1770741409803
+      },
+      {
+        "id": "8m5loqqah78",
+        "text": "Athletic - does marathons",
+        "createdAt": 1770741409803
+      }
+    ],
+    "favorite": 0,
+    "createdAt": 1771173409803,
+    "updatedAt": 1771173409803
+  },
+  {
+    "id": "v4ti03zrfmi",
+    "firstName": "Abhishek",
+    "lastName": "Naik",
+    "company": "AWS",
+    "title": "SA Manager",
+    "phone": "",
+    "email": "",
+    "city": "Miami",
+    "state": "FL",
+    "notes": [
+      {
+        "id": "lr7uy4wfvmd",
+        "text": "My manager at NextEra",
+        "createdAt": 1770655009803
+      },
+      {
+        "id": "yqr7eil1w3",
+        "text": "Came to USA at 20 alone",
+        "createdAt": 1770655009803
+      },
+      {
+        "id": "0muy7ls4m9j",
+        "text": "Outdoorsman - likes climbing mountains and any outdoor activity",
+        "createdAt": 1770655009803
+      },
+      {
+        "id": "olb7t5rcj88",
+        "text": "Cutting back on coffee",
+        "createdAt": 1770655009803
+      },
+      {
+        "id": "8k2wnbz26kx",
+        "text": "Used to be a video game addict",
+        "createdAt": 1770655009803
+      },
+      {
+        "id": "yjwbbkik4zn",
+        "text": "Went to a small remote school in India with a peculiar culture",
+        "createdAt": 1770655009803
+      },
+      {
+        "id": "bxqm32do5ym",
+        "text": "Lives in Brickell",
+        "createdAt": 1770655009803
+      }
+    ],
+    "favorite": 0,
+    "createdAt": 1771259809803,
+    "updatedAt": 1771259809803
+  },
+  {
+    "id": "qy8w9fgqwr",
+    "firstName": "Deepa",
+    "lastName": "Pahuja",
+    "company": "AWS",
+    "title": "SA",
+    "phone": "",
+    "email": "",
+    "city": "",
+    "state": "FL",
+    "notes": [
+      {
+        "id": "mhz99eaxyfg",
+        "text": "Close with Abhi from their time in ProServe",
+        "createdAt": 1770568609803
+      },
+      {
+        "id": "hmkn1oapid",
+        "text": "Ambitious",
+        "createdAt": 1770568609803
+      },
+      {
+        "id": "844l6k2f43a",
+        "text": "New Mother in 2024 to Baby Mishika Rana - lots of hair early",
+        "createdAt": 1770568609803
+      }
+    ],
+    "favorite": 0,
+    "createdAt": 1771346209803,
+    "updatedAt": 1771346209803
+  },
+  {
+    "id": "czo8fhpkxq4",
+    "firstName": "Alonso",
+    "lastName": "Adecosio",
+    "company": "AWS",
+    "title": "TAM",
+    "phone": "",
+    "email": "",
+    "city": "Miami",
+    "state": "FL",
+    "notes": [
+      {
+        "id": "h5vv06g9jm8",
+        "text": "Has a dog",
+        "createdAt": 1770482209803
+      },
+      {
+        "id": "2xo1aoyndcl",
+        "text": "Lives in Brickell",
+        "createdAt": 1770482209803
+      },
+      {
+        "id": "f5en8o6jwoo",
+        "text": "Has a wife",
+        "createdAt": 1770482209803
+      }
+    ],
+    "favorite": 0,
+    "createdAt": 1771432609803,
+    "updatedAt": 1771432609803
+  },
+  {
+    "id": "hhbgalvh7f",
+    "firstName": "Jeremy",
+    "lastName": "Cianella",
+    "company": "AWS",
+    "title": "SA",
+    "phone": "",
+    "email": "",
+    "city": "",
+    "state": "FL",
+    "notes": [
+      {
+        "id": "3noqauoxcs3",
+        "text": "Worked at NextEra for 9 years",
+        "createdAt": 1770395809803
+      },
+      {
+        "id": "dsjn0ngy7g",
+        "text": "Reserved but really smart",
+        "createdAt": 1770395809803
+      },
+      {
+        "id": "9s3vqfffu3o",
+        "text": "Has 2 kids (boy and girl)",
+        "createdAt": 1770395809803
+      },
+      {
+        "id": "68iy7epc30a",
+        "text": "Born and raised in FL",
+        "createdAt": 1770395809803
+      },
+      {
+        "id": "6v7g0oa6we",
+        "text": "Italian background",
+        "createdAt": 1770395809803
+      },
+      {
+        "id": "w0xd2cerkdi",
+        "text": "Loves building",
+        "createdAt": 1770395809803
+      }
+    ],
+    "favorite": 0,
+    "createdAt": 1771519009803,
+    "updatedAt": 1771519009803
+  },
+  {
+    "id": "gnih95wnwdw",
+    "firstName": "Bekah",
+    "lastName": "Richard",
+    "company": "AWS",
+    "title": "GAM",
+    "phone": "",
+    "email": "",
+    "city": "",
+    "state": "FL",
+    "notes": [
+      {
+        "id": "rsxv5zhrk6",
+        "text": "From Hershey PA - moved to NC at a young age",
+        "createdAt": 1770309409803
+      },
+      {
+        "id": "blc8tb8mglj",
+        "text": "Went to NC State",
+        "createdAt": 1770309409803
+      },
+      {
+        "id": "yvpp776xy1",
+        "text": "Moved to Houston for work then to Florida",
+        "createdAt": 1770309409803
+      },
+      {
+        "id": "iz8yrc3dz8",
+        "text": "Used to do training and call center work as IC and manager",
+        "createdAt": 1770309409803
+      },
+      {
+        "id": "8xx7ewsy9i8",
+        "text": "Has boat",
+        "createdAt": 1770309409803
+      },
+      {
+        "id": "isifivem6od",
+        "text": "Baby Audrey born in 2023",
+        "createdAt": 1770309409803
+      },
+      {
+        "id": "fqsro8pelbn",
+        "text": "Live-in help for house and baby",
+        "createdAt": 1770309409803
+      },
+      {
+        "id": "mxwki7fvnk",
+        "text": "Husband works at Cisco",
+        "createdAt": 1770309409803
+      }
+    ],
+    "favorite": 0,
+    "createdAt": 1771605409803,
+    "updatedAt": 1771605409803
+  },
+  {
+    "id": "48amku89qvq",
+    "firstName": "Alan",
+    "lastName": "Giner",
+    "company": "AWS",
+    "title": "GAM",
+    "phone": "",
+    "email": "",
+    "city": "",
+    "state": "",
+    "notes": [
+      {
+        "id": "sgm9luyjbm",
+        "text": "No BS",
+        "createdAt": 1770223009803
+      },
+      {
+        "id": "h5lxig6god",
+        "text": "Likes movies about hustle - Wolf of Wall Street, War Dogs, Cocaine Cowboys",
+        "createdAt": 1770223009803
+      }
+    ],
+    "favorite": 0,
+    "createdAt": 1771691809803,
+    "updatedAt": 1771691809803
+  },
+  {
+    "id": "udyz68nup9h",
+    "firstName": "Kyle",
+    "lastName": "Jones",
+    "company": "AWS",
+    "title": "SA Manager",
+    "phone": "",
+    "email": "",
+    "city": "Norman",
+    "state": "OK",
+    "notes": [
+      {
+        "id": "321n74bciic",
+        "text": "Lives in Norman OK",
+        "createdAt": 1770136609803
+      },
+      {
+        "id": "o28hojliu1j",
+        "text": "Has 3 kids - lives right next to school, lots of churches",
+        "createdAt": 1770136609803
+      },
+      {
+        "id": "6euyrprqmff",
+        "text": "Went to Harvard",
+        "createdAt": 1770136609803
+      },
+      {
+        "id": "81nq5huk4ti",
+        "text": "Did a lot of AI/ML stuff",
+        "createdAt": 1770136609803
+      },
+      {
+        "id": "1pyisb34cg5",
+        "text": "Very self motivated",
+        "createdAt": 1770136609803
+      },
+      {
+        "id": "1bfwzt1skfh",
+        "text": "No BS kinda guy",
+        "createdAt": 1770136609803
+      }
+    ],
+    "favorite": 0,
+    "createdAt": 1771778209803,
+    "updatedAt": 1771778209803
+  },
+  {
+    "id": "5ha702wkfiu",
+    "firstName": "Haley",
+    "lastName": "Niven",
+    "company": "AWS",
+    "title": "SA",
+    "phone": "",
+    "email": "",
+    "city": "Houston",
+    "state": "TX",
+    "notes": [
+      {
+        "id": "sa66o5ht1jg",
+        "text": "Former military wife",
+        "createdAt": 1770050209803
+      },
+      {
+        "id": "2whqjaz8gs2",
+        "text": "Did Apprenticeship in 2021 and joined full time",
+        "createdAt": 1770050209803
+      },
+      {
+        "id": "yus1kunub99",
+        "text": "On the Halliburton Account",
+        "createdAt": 1770050209803
+      },
+      {
+        "id": "n8omgjoidd8",
+        "text": "Used to work in Museums",
+        "createdAt": 1770050209803
+      },
+      {
+        "id": "zfn8kv5t5h7",
+        "text": "Studied at Johns Hopkins",
+        "createdAt": 1770050209803
+      },
+      {
+        "id": "mizwgfr7mp",
+        "text": "Lives in the Heights Houston",
+        "createdAt": 1770050209803
+      },
+      {
+        "id": "l43beq8q6f",
+        "text": "Very kind",
+        "createdAt": 1770050209803
+      }
+    ],
+    "favorite": 0,
+    "createdAt": 1771864609803,
+    "updatedAt": 1771864609803
+  },
+  {
+    "id": "hjzunxhk0e",
+    "firstName": "William",
+    "lastName": "Niven",
+    "company": "AWS",
+    "title": "SA",
+    "phone": "",
+    "email": "",
+    "city": "Houston",
+    "state": "TX",
+    "notes": [
+      {
+        "id": "04tvfxr8qzqb",
+        "text": "Former soldier",
+        "createdAt": 1769963809803
+      },
+      {
+        "id": "9ogj73ow1dv",
+        "text": "Worked on an oil rig",
+        "createdAt": 1769963809803
+      },
+      {
+        "id": "wtfsvmenjtj",
+        "text": "On Exxon account",
+        "createdAt": 1769963809803
+      }
+    ],
+    "favorite": 0,
+    "createdAt": 1771951009803,
+    "updatedAt": 1771951009803
+  },
+  {
+    "id": "2rf09onwwiu",
+    "firstName": "Li",
+    "lastName": "Mu",
+    "company": "AWS",
+    "title": "SA",
+    "phone": "",
+    "email": "",
+    "city": "",
+    "state": "TX",
+    "notes": [
+      {
+        "id": "8oeleo6dt2",
+        "text": "On BP account",
+        "createdAt": 1769877409803
+      },
+      {
+        "id": "sfuwzcackt",
+        "text": "Has two boys",
+        "createdAt": 1769877409803
+      },
+      {
+        "id": "c9aj6bab4yn",
+        "text": "Likes to laugh",
+        "createdAt": 1769877409803
+      },
+      {
+        "id": "xntv96nggc",
+        "text": "Owns TFC",
+        "createdAt": 1769877409803
+      },
+      {
+        "id": "1cc0znielk5",
+        "text": "Expert in Energy Trading - did a large Indur migration with BP",
+        "createdAt": 1769877409803
+      }
+    ],
+    "favorite": 0,
+    "createdAt": 1772037409803,
+    "updatedAt": 1772037409803
+  },
+  {
+    "id": "dz53rede3y5",
+    "firstName": "Johnathan",
+    "lastName": "Delfour",
+    "company": "",
+    "title": "",
+    "phone": "",
+    "email": "",
+    "city": "Houston",
+    "state": "TX",
+    "notes": [
+      {
+        "id": "oahmmd90vfk",
+        "text": "Based in Houston",
+        "createdAt": 1769791009803
+      },
+      {
+        "id": "103dil4p0ith",
+        "text": "Has kids",
+        "createdAt": 1769791009803
+      },
+      {
+        "id": "rg9hnkkue8",
+        "text": "From France",
+        "createdAt": 1769791009803
+      }
+    ],
+    "favorite": 0,
+    "createdAt": 1772123809803,
+    "updatedAt": 1772123809803
+  },
+  {
+    "id": "9cr6js8eiju",
+    "firstName": "Richard",
+    "lastName": "Beltran",
+    "company": "AWS",
+    "title": "Product Marketing Manager",
+    "phone": "",
+    "email": "",
+    "city": "",
+    "state": "FL",
+    "notes": [
+      {
+        "id": "ym9z0fhu4p",
+        "text": "Based in FL",
+        "createdAt": 1769704609803
+      },
+      {
+        "id": "3e9kgcm6d1z",
+        "text": "Owns content prod",
+        "createdAt": 1769704609803
+      },
+      {
+        "id": "24tb0tg8j45",
+        "text": "Easy going",
+        "createdAt": 1769704609803
+      }
+    ],
+    "favorite": 0,
+    "createdAt": 1772210209803,
+    "updatedAt": 1772210209803
+  },
+  {
+    "id": "6oyagygzh",
+    "firstName": "Kumar",
+    "lastName": "Lakshmipathi",
+    "company": "AWS",
+    "title": "Energy Gen AI Lead",
+    "phone": "",
+    "email": "",
+    "city": "",
+    "state": "",
+    "notes": [
+      {
+        "id": "e5pgb15b6fe",
+        "text": "From south India",
+        "createdAt": 1769618209803
+      },
+      {
+        "id": "5ox3ewgqljj",
+        "text": "Has twin daughters at Stanford studying soft science",
+        "createdAt": 1769618209803
+      }
+    ],
+    "favorite": 0,
+    "createdAt": 1772296609803,
+    "updatedAt": 1772296609803
+  }
+]

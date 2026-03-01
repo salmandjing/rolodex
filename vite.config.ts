@@ -42,6 +42,6 @@ export default defineConfig({
     }),
   ],
   server: {
-    allowedHosts: ['djsalman-xps-17-9720.tail1f2c6b.ts.net'],
+    allowedHosts: true,
   },
 })

@@ -14,9 +14,7 @@ const LS_LAST_BACKUP = 'rolodex-gdrive-last-backup'
 // ── Auth ──────────────────────────────────────────────
 
 function getRedirectUri(): string {
-  const origin = window.location.origin
-  if (origin.includes('localhost')) return 'http://localhost:5173/'
-  return 'https://djsalman-xps-17-9720.tail1f2c6b.ts.net/'
+  return window.location.origin + '/';
 }
 
 export function getToken(): string | null {
