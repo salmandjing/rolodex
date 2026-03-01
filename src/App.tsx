@@ -30,7 +30,7 @@ export default function App() {
   }
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/rolodex/">
       <Routes>
         <Route
           path="/"
